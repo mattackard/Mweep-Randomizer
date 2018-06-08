@@ -2,11 +2,10 @@ h1 {
   color: red;
 }
 
-#main-content {
+video {
   position: absolute;
-  top: 90%;
-  right: 50%;
-  width: 10px;
-  height: 10px;
-  background-color: red;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 }
