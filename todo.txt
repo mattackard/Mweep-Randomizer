@@ -1,0 +1,19 @@
+
+start implementing rest of loot system
+  build animation for chest/lootbox opening
+
+add background music
+  implement volume mixer?
+
+create the give item function to give the player a random item
+  create a modal pop-up with the item image, item name
+    ? and a description ?
+
+
+fix currentTime error on page load
+    trying to access and define attributes of the video before it is loaded
+
+put in UI for your inventory
+
+create animated text boxes copying the OOT text box style
+  use Typed.js
