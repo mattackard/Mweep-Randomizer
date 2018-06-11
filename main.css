@@ -1,11 +1,45 @@
-h1 {
-  color: red;
+body {
+  background-color: black;
+  box-sizing: border-box;
 }
 
 video {
   position: absolute;
+  height: 100%;
   width: 100%;
   bottom: 0;
   left: 0;
   z-index: 1;
+}
+
+#modal {
+  background-color: green;
+  position: absolute;
+  width: 50%;
+  height: 60%;
+  top: 5%;
+  left: 25%;
+  z-index: 5;
+  border-radius: 3em;
+}
+
+#textBox {
+  background-color: blue;
+  position: absolute;
+  width: 60%;
+  height: 25%;
+  top: 70%;
+  left: 20%;
+  z-index: 3;
+  border-radius: 1em;
+}
+
+#modal p {
+  padding: 0 1em;
+  font-size: 1.6em;
+}
+
+#textBox p {
+  padding: 0 1em;
+  font-size: 1.6em;
 }
