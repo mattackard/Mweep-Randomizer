@@ -1,6 +1,12 @@
+@font-face {
+  font-family: Ocarina;
+  src: url('media/fonts/FOT-ChiaroStd-B.otf') format("opentype");
+}
+
 body {
   background-color: black;
   box-sizing: border-box;
+  /* font-family: Ocarina, courier; */
 }
 
 video {
@@ -13,18 +19,19 @@ video {
 }
 
 #modal {
-  background-color: green;
+  background-color: white;
   position: absolute;
+  display: none;
   width: 50%;
   height: 60%;
   top: 5%;
   left: 25%;
   z-index: 5;
-  border-radius: 3em;
+  border-radius: 1em;
 }
 
 #textBox {
-  background-color: blue;
+  background-color: rgba(0,0,0,.6);
   position: absolute;
   width: 60%;
   height: 25%;
@@ -32,6 +39,7 @@ video {
   left: 20%;
   z-index: 3;
   border-radius: 1em;
+  color: white;
 }
 
 #modal p {
