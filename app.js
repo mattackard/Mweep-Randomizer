@@ -1,21 +1,29 @@
 
-let $forwardObj = $('#video-forward');          //gets the object containing the videos
-let $reverseObj = $('#video-reverse');
-let $forward = $('#video-forward').get(0);      //gets the video HTML for use with play() and pause()
-let $reverse = $('#video-reverse').get(0);
-let $bgMusic = $('audio').get(0);
-let rightArrow = 39;    //keycode for left arrow key
-let leftArrow = 37;     //keycode for right arrow key
+const $forwardObj = $('#video-forward');          //gets the object containing the videos
+const $reverseObj = $('#video-reverse');
+const $forward = $('#video-forward').get(0);      //gets the video HTML for use with play() and pause()
+const $reverse = $('#video-reverse').get(0);
+const $bgMusic = $('#bgMusic').get(0);
+const $fanfare = $('#fanfare').get(0);
+const $modal = $('#modal');
+const rightArrow = 39;    //keycode for left arrow key
+const leftArrow = 37;     //keycode for right arrow key
 
 
 function getItem() {
-  console.log('got an item');
+  let item = items[Object.keys(items)[Math.floor(Math.random() * Object.keys(items).length)]];  //gets a random item (items is inherited from items.js)
+  $('#itemName').text(item['name']);                                                            //sets the text on the modal pop-up
+  $('#modal img').attr('src', item['image']);
+  $('#itemDescription').text(item['description']);
+  $fanfare.play();
+  $modal.fadeIn().delay(2000).fadeOut();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  $reverse.currentTime = $reverse.duration; //gives the reverse video the "ended" property from start
-  $reverseObj.css('z-index', '-1');         //hides the reverse video behind the forward video for the start
-})
+$reverse.addEventListener('loadeddata', () => {
+  $reverse.currentTime = $reverse.duration;     //gives the reverse video the "ended" property from start
+  $reverseObj.css('z-index', '-1');             //hides the reverse video behind the forward video for the start
+  console.log('reverse should be in back');
+});
 
 $('body').keydown((e) => {
   $bgMusic.play();
