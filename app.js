@@ -8,6 +8,8 @@ const $fanfare = $('#fanfare').get(0);
 const $modal = $('#modal');
 const rightArrow = 39;    //keycode for left arrow key
 const leftArrow = 37;     //keycode for right arrow key
+let gameStarted = false;
+let playerName = 'Anonymous';
 
 
 function getItem() {
@@ -19,17 +21,27 @@ function getItem() {
   $modal.fadeIn().delay(2000).fadeOut();
 }
 
+function startGame() {
+  gameStarted = true;
+  playerName = $('#titleScreen input').val() || "Anonymous";    //sets player name to anonymous if no other value is provided
+  console.log(playerName);
+  $('#titleScreen').fadeOut();
+  $bgMusic.play();
+}
+
 $modal.hide();    //hides modal when page is loaded
 
 $reverse.addEventListener('loadeddata', () => {
   $reverse.currentTime = $reverse.duration;     //gives the reverse video the "ended" property from start
   $reverseObj.css('z-index', '-1');             //hides the reverse video behind the forward video for the start
-  console.log('reverse should be in back');
+  console.log('loadeddata triggered');
 });
 
+$('#startGame').click(startGame);               //runs startGame on title button press
+
 $('body').keydown((e) => {
-  $bgMusic.play();
-  if (e.which == leftArrow && $reverse.ended) {
+  console.log('key pressed');
+  if (e.which == leftArrow && $reverse.ended && gameStarted) {
     if ( ! $forward.ended ) {
       $forward.play();
     }
@@ -40,7 +52,7 @@ $('body').keydown((e) => {
       $forwardObj.css('z-index', '-1');
     }
   }
-  if (e.which == rightArrow  && $forward.ended) {
+  if (e.which == rightArrow  && $forward.ended && gameStarted) {
     if ( ! $reverse.ended ) {
       $reverse.play();
     }
