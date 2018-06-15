@@ -21,5 +21,3 @@ create animated text boxes copying the OOT text box style
 
   font works in edge but not chrome?
     find a converter for fonts that actually works
-
-  video needs to have webm source added
