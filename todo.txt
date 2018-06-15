@@ -1,19 +1,25 @@
 
 start implementing rest of loot system
-  build animation for chest/lootbox opening
+  disallow getting items you already have
+  make variable to store currently held items
 
-add background music
-  implement volume mixer?
+have player start with a random number of items
 
-create the give item function to give the player a random item
-  create a modal pop-up with the item image, item name
-    ? and a description ?
+add initial play button
+  add username entry?
 
+implement volume mixer?
 
-fix currentTime error on page load
-    trying to access and define attributes of the video before it is loaded
+format the modal content
+  flex column with space around
 
 put in UI for your inventory
+  use a button for pop-up
 
 create animated text boxes copying the OOT text box style
   use Typed.js
+
+  font works in edge but not chrome?
+    find a converter for fonts that actually works
+
+  video needs to have webm source added
