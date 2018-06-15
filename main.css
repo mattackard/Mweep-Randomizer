@@ -10,13 +10,13 @@
   font-style: normal;
 }
 
+* {
+  font-family: 'Ocarina', sans-serif;
+  box-sizing: border-box;
+}
+
 body {
   background-color: black;
-  box-sizing: border-box;
-  font-family: 'Ocarina', sans-serif;
-  letter-spacing: -6px;
-  word-spacing: 1.2em;
-  line-height: 2.3em;
 }
 
 #titleScreen {
@@ -93,9 +93,10 @@ video {
   z-index: 3;
   border-radius: 1em;
   color: white;
+  font-size: 2em;
+  padding: 1em;
 }
 
 #textBox p {
   padding: 0 1em;
-  font-size: 1.6em;
 }
