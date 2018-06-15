@@ -19,6 +19,8 @@ function getItem() {
   $modal.fadeIn().delay(2000).fadeOut();
 }
 
+$modal.hide();    //hides modal when page is loaded
+
 $reverse.addEventListener('loadeddata', () => {
   $reverse.currentTime = $reverse.duration;     //gives the reverse video the "ended" property from start
   $reverseObj.css('z-index', '-1');             //hides the reverse video behind the forward video for the start
