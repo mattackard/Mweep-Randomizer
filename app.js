@@ -6,6 +6,7 @@ const $reverse = $('#video-reverse').get(0);
 const $bgMusic = $('#bgMusic').get(0);
 const $fanfare = $('#fanfare').get(0);
 const $modal = $('#modal');
+const $textBox = $('#textBox');
 const rightArrow = 39;    //keycode for left arrow key
 const leftArrow = 37;     //keycode for right arrow key
 let gameStarted = false;
@@ -29,7 +30,20 @@ function startGame() {
   $bgMusic.play();
 }
 
+function createText(textArray) {
+  $textBox.fadeIn();
+  let typed = new Typed('#textBox', {
+    strings: textArray,                                       //why does it skip the first array index?
+    typeSpeed: 50,
+    loop: false,
+    onComplete: () => {
+      $textBox.delay(1000).fadeOut();
+    }
+  })
+}
+
 $modal.hide();    //hides modal when page is loaded
+$textBox.hide();
 
 $reverse.addEventListener('loadeddata', () => {
   $reverse.currentTime = $reverse.duration;     //gives the reverse video the "ended" property from start
