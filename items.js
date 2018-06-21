@@ -99,12 +99,35 @@ const items = {
     "image" : "media/items/bug.png",
     "description" : "Captured in a bottle. It may be venemous"
   },
-
-
+  "bunnyEars": {
+    "name" : "Bunny Ears",
+    "image" : "media/items/bunnyEars.png",
+    "description" : "Wear them on your head"
+  },
+  "card": {
+    "name" : "Card",
+    "image" : "media/items/card.png",
+    "description" : "A card with something red on it. What does the inside say?"
+  },
+  "chicken": {
+    "name" : "Chicken",
+    "image" : "media/items/chicken.png",
+    "description" : "Cluck cluck"
+  },
+  "egg": {
+    "name" : "Egg",
+    "image" : "media/items/egg.png",
+    "description" : "Sit on this and it might hatch"
+  },
+  "fairy": {
+    "name" : "Glowing bottle",
+    "image" : "media/items/fairy.png",
+    "description" : "Hey! Something glows inside this bottle"
+  },
   "fireArrow": {
-    "name" : "Fire Arrows",
+    "name" : "Red Arrow",
     "image" : "media/items/fireArrow.png",
-    "description" : "This arrow is perpetually on fire"
+    "description" : "This arrow was converted to a blunt object making it of little use"
   }
 };
 // "": {
