@@ -30,7 +30,7 @@ function getItem() {
 }
 
 function itemPopup(item) {
-  $('#itemName').text(item['name']);                                                            //sets the text on the modal pop-up
+  $('#itemName').text(item['name']);                      //sets the text on the modal pop-up
   $('#modal img').attr('src', item['image']);
   $('#itemDescription').text(item['description']);
   $fanfare.play();
@@ -47,15 +47,16 @@ function startGame() {
         "My son-in-law needs some more gadgets so he can save the world again.",
         "My legs don't work like they used to, but I can slide left and right better than any Zora in my kingdom!",
         "There are always things drifting down Zora's river that ends up to the left or right of me. I think it's time to check it out!",
-        "I see something to the left! Quick!"], () => {
-    $textBox.delay(1000).fadeOut();
-    gameStarted = true;
+        "I see something to the left! Quick!"],
+      () => {
+          $textBox.delay(1000).fadeOut();
+          gameStarted = true;
   });
 }
 
 function createText(textArray, func) {
   $textBox.fadeIn();
-  textArray.unshift(" ");                         //why does it skip the first array index? unshift until i figure it out
+  textArray.unshift(" ");                         //why does it skip the first array index? using unshift to hack around it until i figure it out
   let typed = new Typed('#textBox', {
     strings: textArray,
     typeSpeed: 50,
@@ -67,7 +68,7 @@ function createText(textArray, func) {
 
 function buildInventory() {
   console.log("building the inventory");
-  let count = Math.floor(Math.random() * (Object.keys(items).length - 1));
+  let count = Math.floor(Math.random() * (Object.keys(items).length - 1));      //gets a random number of items that will start in your inventory
   console.log(count);
   for(count; count != 0; count--) {
     getItem();
