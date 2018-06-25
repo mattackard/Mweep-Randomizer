@@ -1,23 +1,15 @@
 
-start implementing rest of loot system
-  disallow getting items you already have
-  make variable to store currently held items
-
-have player start with a random number of items
-
-add initial play button
-  add username entry?
-
-implement volume mixer?
-
-format the modal content
-  flex column with space around
-
 put in UI for your inventory
+  generate div with item images in js
+    set opacity low until item is in inventory
   use a button for pop-up
 
-create animated text boxes copying the OOT text box style
-  use Typed.js
+add rest of items
 
-  font works in edge but not chrome?
-    find a converter for fonts that actually works
+why does typed.js skip the first sentence in the string array?
+
+allow movement before intro text is complete?
+
+navi "HEY!" with arrow alert when keyup?
+
+add ending screen (You're Winner)
