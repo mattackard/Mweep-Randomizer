@@ -7,6 +7,7 @@ const $bgMusic = $('#bgMusic').get(0);
 const $fanfare = $('#fanfare').get(0);
 const $modal = $('#modal');
 const $textBox = $('#textBox');
+const $inventoryDiv = $('#inventoryUI');
 const rightArrow = 39;    //keycode for left arrow key
 const leftArrow = 37;     //keycode for right arrow key
 let gameStarted = false;
@@ -76,8 +77,20 @@ function buildInventory() {
   console.log(inventory);
 }
 
+function populateInventory(inventoryObject) {
+  let data = "<ul>";
+  for (let count = 0; count < Object.keys(items).length; count++) {
+    data += `<li><img class="inventoryItem" src="${items[Object.keys(items)[count]].image}"></li>`;
+    console.log(data);
+  }
+  data += "</ul>";
+  $inventoryDiv.html(data);
+}
+
 $modal.hide();    //hides modal when page is loaded
 $textBox.hide();
+populateInventory(items);
+$inventoryDiv.hide();
 console.log(Object.keys(items).length);
 
 $reverse.addEventListener('loadeddata', () => {
@@ -124,3 +137,7 @@ $('body').keyup((e) => {
     $reverse.pause();
   }
 });
+
+$("#inventoryButton").click(() => {
+  $inventoryDiv.fadeToggle();
+})
