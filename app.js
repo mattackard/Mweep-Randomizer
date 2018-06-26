@@ -43,7 +43,7 @@ function startGame() {
   console.log(playerName);
   $('#titleScreen').fadeOut();
   $bgMusic.play();
-  buildInventory();
+  startingInventory();
   createText([`Welcome to my domain ${playerName}.`,
         "My son-in-law needs some more gadgets so he can save the world again.",
         "My legs don't work like they used to, but I can slide left and right better than any Zora in my kingdom!",
@@ -67,7 +67,7 @@ function createText(textArray, func) {
   });
 }
 
-function buildInventory() {
+function startingInventory() {
   console.log("building the inventory");
   let count = Math.floor(Math.random() * (Object.keys(items).length - 1));      //gets a random number of items that will start in your inventory
   console.log(count);
@@ -81,7 +81,6 @@ function populateInventory(inventoryObject) {
   let data = "<ul>";
   for (let count = 0; count < Object.keys(items).length; count++) {
     data += `<li><img class="inventoryItem" src="${items[Object.keys(items)[count]].image}"></li>`;
-    console.log(data);
   }
   data += "</ul>";
   $inventoryDiv.html(data);

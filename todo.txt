@@ -1,8 +1,7 @@
 
-put in UI for your inventory
-  generate div with item images in js
-    set opacity low until item is in inventory
-  use a button for pop-up
+
+set item opacity low until item is in inventory
+  how to link inventory to inventoryUI div?
 
 add rest of items
 
