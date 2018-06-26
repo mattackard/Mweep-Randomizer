@@ -91,7 +91,7 @@ const items = {
   },
   "bronzeQuiver": {
     "name" : "Cylindrical Arrow Case",
-    "image" : "media/items/brozeQuiver.png",
+    "image" : "media/items/bronzeQuiver.png",
     "description" : "Put your arrows in here"
   },
   "bug": {
