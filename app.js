@@ -27,6 +27,7 @@ function getItem() {
     "image": item.image,
     "description": item.description
   };
+  $(`[src="${item.image}"]`).css('opacity', '1');
   return item;
 }
 
@@ -35,7 +36,7 @@ function itemPopup(item) {
   $('#modal img').attr('src', item['image']);
   $('#itemDescription').text(item['description']);
   $fanfare.play();
-  $modal.fadeIn().delay(2000).fadeOut();
+  $modal.fadeIn().delay(2000).fadeOut(400, winCheck);
 }
 
 function startGame() {
@@ -84,6 +85,12 @@ function populateInventory(inventoryObject) {
   }
   data += "</ul>";
   $inventoryDiv.html(data);
+}
+
+function winCheck() {
+  if (Object.keys(inventory).length === Object.keys(items).length) {
+    console.log("You won!");
+  }
 }
 
 $modal.hide();    //hides modal when page is loaded

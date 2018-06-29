@@ -1,14 +1,9 @@
 
-
-set item opacity low until item is in inventory
-  how to link inventory to inventoryUI div?
-
-add rest of items
-
 why does typed.js skip the first sentence in the string array?
-
-allow movement before intro text is complete?
 
 navi "HEY!" with arrow alert when keyup?
 
 add ending screen (You're Winner)
+
+clean up text boxes about changing directions -- it currently backspaces the last message
+    get rid of backspacing entirely
