@@ -44,6 +44,7 @@ function startGame() {
   $('#titleScreen').fadeOut();
   $bgMusic.play();
   startingInventory();
+  gameStarted = true;
   createText([`Welcome to my domain ${playerName}.`,
         "My son-in-law needs some more gadgets so he can save the world again.",
         "My legs don't work like they used to, but I can slide left and right better than any Zora in my kingdom!",
@@ -51,7 +52,6 @@ function startGame() {
         "I see something to the left! Quick!"],
       () => {
           $textBox.delay(1000).fadeOut();
-          gameStarted = true;
   });
 }
 
