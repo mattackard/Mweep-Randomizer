@@ -1,9 +1,10 @@
+make inventory resize so it always fits on screen
+
+
 
 why does typed.js skip the first sentence in the string array?
 
 navi "HEY!" with arrow alert when keyup?
-
-add ending screen pop-up (You're Winner)
 
 clean up text boxes about changing directions -- it currently backspaces the last message
     get rid of backspacing entirely

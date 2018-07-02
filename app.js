@@ -21,7 +21,6 @@ function getItem() {
 
   while (inventory.hasOwnProperty(item.name) && Object.keys(items).length != Object.keys(inventory).length) {                                                 //gets a new item if the random item is a duplicate
     item = items[Object.keys(items)[Math.floor(Math.random() * Object.keys(items).length)]];
-      console.log(item);
   }
 
   inventory[item.name] = {                                  //adds random unique item to inventory
@@ -38,12 +37,11 @@ function itemPopup(item) {
   $('#modal img').attr('src', item['image']);
   $('#itemDescription').text(item['description']);
   $fanfare.play();
-  $modal.fadeIn().delay(2000).fadeOut(400, winCheck);
+  $modal.fadeIn().delay(3000).fadeOut(400, winCheck);
 }
 
 function startGame() {
   playerName = $('#titleScreen input').val() || "Anonymous";    //sets player name to anonymous if no other value is provided
-  console.log(playerName);
   $('#titleScreen').fadeOut();
   $bgMusic.play();
   startingInventory();
@@ -51,47 +49,43 @@ function startGame() {
   createText([`Welcome to my domain ${playerName}.`,
         "My son-in-law needs some more gadgets so he can save the world again.",
         "My legs don't work like they used to, but I can slide left and right better than any Zora in my kingdom!",
-        "There are always things drifting down Zora's river that ends up to the left or right of me. I think it's time to check it out!",
-        "I see something to the left! Quick!"],
-      () => {
-          $textBox.delay(1000).fadeOut();
-  });
+        "There is always junk drifting down Zora's river that end up to the left or right of me. I think it's time to check it out!",
+        "I see something to the left! Quick!"]);
 }
 
-function createText(textArray, func) {
+function createText(textArray) {
   $textBox.fadeIn();
   textArray.unshift(" ");                         //why does it skip the first array index? using unshift to hack around it until i figure it out
   let typed = new Typed('#textBox', {
     strings: textArray,
     typeSpeed: 50,
     loop: false,
-    startDelay: 1200,
-    onComplete: func
+    startDelay: 400,
+    onComplete: () => {
+      $textBox.delay(2000).fadeOut(400, () => {typed.destroy();});
+    }
   });
 }
 
 function startingInventory() {
-  console.log("building the inventory");
   let count = Math.floor(Math.random() * (Object.keys(items).length - 1));      //gets a random number of items that will start in your inventory
-  console.log(count);
   for(count; count != 0; count--) {
     getItem();
   }
-  console.log(inventory);
 }
 
 function populateInventory(inventoryObject) {
-  let data = "<ul>";
+  let data = "";
   for (let count = 0; count < Object.keys(items).length; count++) {
-    data += `<li><img class="inventoryItem" src="${items[Object.keys(items)[count]].image}"></li>`;
+    data += `<img class="inventoryItem" src="${items[Object.keys(items)[count]].image}">`;
   }
-  data += "</ul>";
+  data += "";
   $inventoryDiv.html(data);
 }
 
 function winCheck() {
   if (Object.keys(inventory).length === Object.keys(items).length) {
-    console.log("You won!");
+    $('#winner').fadeIn();
     gameStarted = false;
   }
 }
@@ -100,13 +94,12 @@ $modal.hide();    //hides modal when page is loaded
 $textBox.hide();
 populateInventory(items);
 $inventoryDiv.hide();
-console.log(Object.keys(items).length);
 
-$reverse.addEventListener('loadeddata', () => {
+setTimeout(() => {
   $reverse.currentTime = $reverse.duration;     //gives the reverse video the "ended" property from start
   $reverseObj.css('z-index', '-1');             //hides the reverse video behind the forward video for the start
   console.log('loadeddata triggered');
-});
+}, 1000);
 
 $('#startGame').click(startGame);               //runs startGame on title button press
 
@@ -121,7 +114,7 @@ $('body').keydown((e) => {
       itemPopup(getItem());
       $reverseObj.css('z-index', '1');
       $forwardObj.css('z-index', '-1');
-      createText(["I see something to the right! Quick!"], () => {$textBox.delay(2000).fadeOut();});
+      createText(["I see something to the right! Quick!"]);
     }
   }
   if (e.which == rightArrow  && $forward.ended && gameStarted) {
@@ -133,7 +126,7 @@ $('body').keydown((e) => {
       itemPopup(getItem());
       $forwardObj.css('z-index', '1');
       $reverseObj.css('z-index', '-1');
-      createText(["I see something to the left! Quick!"], () => {$textBox.delay(2000).fadeOut();});
+      createText(["I see something to the left! Quick!"]);
     }
   }
 });
@@ -148,5 +141,5 @@ $('body').keyup((e) => {
 });
 
 $("#inventoryButton").click(() => {
-  $inventoryDiv.fadeToggle();
+  $inventoryDiv.slideToggle();
 })
