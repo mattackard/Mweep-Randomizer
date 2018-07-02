@@ -18,8 +18,10 @@ let inventory = { };
 function getItem() {
   let item = items[Object.keys(items)[Math.floor(Math.random() * Object.keys(items).length)]];  //gets a random item (items is inherited from items.js)
 
-  while (inventory.hasOwnProperty(item.name)) {                                                 //gets a new item if the random item is a duplicate
+
+  while (inventory.hasOwnProperty(item.name) && Object.keys(items).length != Object.keys(inventory).length) {                                                 //gets a new item if the random item is a duplicate
     item = items[Object.keys(items)[Math.floor(Math.random() * Object.keys(items).length)]];
+      console.log(item);
   }
 
   inventory[item.name] = {                                  //adds random unique item to inventory
@@ -90,6 +92,7 @@ function populateInventory(inventoryObject) {
 function winCheck() {
   if (Object.keys(inventory).length === Object.keys(items).length) {
     console.log("You won!");
+    gameStarted = false;
   }
 }
 

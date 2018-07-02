@@ -170,9 +170,9 @@ const items = {
     "description" : "Long fingerless gloves. Yellow is quite fashionable"
   },
   "goldQuiver": {
-    "name" : "Cylindrical Arrow Case",
+    "name" : "Arrow Vase",
     "image" : "media/items/goldQuiver.png",
-    "description" : "Put your arrows in here...This one is gold!"
+    "description" : "Put your arrows in here...Or a nice boquet of flowers"
   },
   "goronMask": {
     "name" : "Peculiar Onion",
@@ -295,7 +295,7 @@ const items = {
     "description" : "There is a small man inside this bottle"
   },
   "poe2": {
-    "name" : "Unusual bottle",
+    "name" : "Bottle Trap",
     "image" : "media/items/poe2.png",
     "description" : "There is a small woman inside this bottle"
   },
