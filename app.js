@@ -11,7 +11,7 @@ const $inventoryDiv = $('#inventoryUI');
 const rightArrow = 39;    //keycode for left arrow key
 const leftArrow = 37;     //keycode for right arrow key
 let gameStarted = false;
-let playerName = 'Anonymous';
+let playerName = 'Anonymous'; //default name for if none is given
 let inventory = { };
 
 
@@ -28,7 +28,7 @@ function getItem() {
     "image": item.image,
     "description": item.description
   };
-  $(`[src="${item.image}"]`).css('opacity', '1');
+  $(`[src="${item.image}"]`).css('opacity', '1');           //sets opacity low until player has item in inventory
   return item;
 }
 
@@ -45,7 +45,7 @@ function startGame() {
   $('#titleScreen').fadeOut();
   $bgMusic.play();
   startingInventory();
-  gameStarted = true;
+  gameStarted = true;                                           //allows player movement
   createText([`Welcome to my domain ${playerName}.`,
         "My son-in-law needs some more gadgets so he can save the world again.",
         "My legs don't work like they used to, but I can slide left and right better than any Zora in my kingdom!",
@@ -61,8 +61,8 @@ function createText(textArray) {
     typeSpeed: 50,
     loop: false,
     startDelay: 400,
-    onComplete: () => {
-      $textBox.delay(2000).fadeOut(400, () => {typed.destroy();});
+    onComplete: () => {                                                     //when text is complete the typed object destroys itself
+      $textBox.delay(2000).fadeOut(400, () => {typed.destroy();});          //to prevent backspacing before starting next text
     }
   });
 }
@@ -76,7 +76,7 @@ function startingInventory() {
 
 function populateInventory(inventoryObject) {
   let data = "";
-  for (let count = 0; count < Object.keys(items).length; count++) {
+  for (let count = 0; count < Object.keys(items).length; count++) {                                 //adds the image of each item to the UI
     data += `<img class="inventoryItem" src="${items[Object.keys(items)[count]].image}">`;
   }
   data += "";
@@ -86,7 +86,7 @@ function populateInventory(inventoryObject) {
 function winCheck() {
   if (Object.keys(inventory).length === Object.keys(items).length) {
     $('#winner').fadeIn();
-    gameStarted = false;
+    gameStarted = false;              //disallows player movement on win
   }
 }
 
@@ -99,7 +99,7 @@ setTimeout(() => {
   $reverse.currentTime = $reverse.duration;     //gives the reverse video the "ended" property from start
   $reverseObj.css('z-index', '-1');             //hides the reverse video behind the forward video for the start
   console.log('loadeddata triggered');
-}, 1000);
+}, 1000);                                       //used timeout to prevent js trying to access object proprerties before they load
 
 $('#startGame').click(startGame);               //runs startGame on title button press
 
